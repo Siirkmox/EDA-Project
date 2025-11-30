@@ -25,4 +25,4 @@ Thumbs.db
 
 # Data (opcional - comenta si quieres subir los datos)
 # data/cleanedDataset/
-# data/consolidatedDataset/
+# data/consolidatedDataset/src/__pycache__/
