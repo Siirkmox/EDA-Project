@@ -202,22 +202,4 @@ Funciones para visualizaciones:
 4. **Visualización de datos**: Comunicación efectiva de insights mediante gráficos
 5. **Documentación**: README profesional y código bien comentado
 
-## 🤝 Contribuciones
-
-Este es un proyecto académico. Sugerencias y mejoras son bienvenidas:
-- Análisis adicionales (comparativas internacionales, análisis por CCAA)
-- Nuevas visualizaciones
-- Optimizaciones de código
-- Correcciones o mejoras en documentación
-
-## 📄 Licencia
-
-Este proyecto es de código abierto para fines educativos.
-
-## 👤 Autor
-
-Proyecto desarrollado como parte del ejercicio práctico de Análisis Exploratorio de Datos (EDA).
-
----
-
 **Nota:** Los datos utilizados provienen del Instituto Nacional de Estadística (INE) y son de dominio público.
