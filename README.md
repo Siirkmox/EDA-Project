@@ -177,7 +177,7 @@ Funciones para visualizaciones:
 - `plot_distribucion_sectorial()`: Distribución por sectores
 - `plot_origen_fondos()`: Análisis de origen de fondos
 - `plot_impacto_eventos()`: Impacto de crisis económicas
-- `plot_histograma_distribucion_gasto()`: Histogramas de distribución del gasto
+- `plot_histograma_distribucion_gasto()`: Análisis comparativo del ratio Fondos/Gastos por sector (Empresas y Admin Pública)
 
 ## 📝 Decisiones de Diseño
 
