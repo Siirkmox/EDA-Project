@@ -67,6 +67,7 @@ El proyecto sigue un pipeline modular de análisis de datos:
 - Análisis de distribución sectorial
 - Análisis del origen de fondos
 - Impacto de eventos económicos
+- Histogramas de distribución del gasto total y crecimiento interanual
 - Conclusiones y hallazgos
 - Uso de funciones modulares de `src/visualization.py`
 
@@ -176,6 +177,7 @@ Funciones para visualizaciones:
 - `plot_distribucion_sectorial()`: Distribución por sectores
 - `plot_origen_fondos()`: Análisis de origen de fondos
 - `plot_impacto_eventos()`: Impacto de crisis económicas
+- `plot_histograma_distribucion_gasto()`: Histogramas de distribución del gasto
 
 ## 📝 Decisiones de Diseño
 

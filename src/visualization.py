@@ -236,3 +236,57 @@ def plot_impacto_eventos(df_gastos_wide):
     var_2021 = ((df_gastos_wide.loc[2021, 'Total'] / df_gastos_wide.loc[2020, 'Total']) - 1) * 100
     print(f"📊 Variación 2019-2020: {var_2020:+.1f}%")
     print(f"📈 Variación 2020-2021: {var_2021:+.1f}%")
+    
+
+def plot_histograma_distribucion_gasto(df_gastos_wide):
+    """
+    Genera histograma de la distribución del gasto total en I+D.
+
+    Args:
+        df_gastos_wide (pd.DataFrame): DataFrame de gastos en formato ancho con índice de años
+    """
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+
+    # 1. Histograma del gasto total
+    ax1.hist(df_gastos_wide['Total']/1000, bins=15, color='#2E86AB', alpha=0.7, edgecolor='black')
+    ax1.axvline(df_gastos_wide['Total'].mean()/1000, color='red', linestyle='--', linewidth=2, label=f'Media: {df_gastos_wide["Total"].mean()/1000:.0f}M €')
+    ax1.axvline(df_gastos_wide['Total'].median()/1000, color='orange', linestyle='--', linewidth=2, label=f'Mediana: {df_gastos_wide["Total"].median()/1000:.0f}M €')
+    
+    ax1.set_title('Distribución del Gasto Total en I+D (2000-2024)', fontsize=14, fontweight='bold')
+    ax1.set_xlabel('Gasto Total (Millones de €)')
+    ax1.set_ylabel('Número de años')
+    ax1.legend()
+    ax1.grid(True, alpha=0.3, axis='y')
+
+    # 2. Histograma del crecimiento interanual
+    crecimiento = df_gastos_wide['Total'].pct_change() * 100
+    crecimiento = crecimiento.dropna()
+    
+    ax2.hist(crecimiento, bins=12, color='#06A77D', alpha=0.7, edgecolor='black')
+    ax2.axvline(0, color='red', linestyle='-', linewidth=2, alpha=0.5, label='Sin crecimiento')
+    ax2.axvline(crecimiento.mean(), color='orange', linestyle='--', linewidth=2, label=f'Media: {crecimiento.mean():.1f}%')
+    
+    ax2.set_title('Distribución del Crecimiento Interanual en I+D', fontsize=14, fontweight='bold')
+    ax2.set_xlabel('Crecimiento Interanual (%)')
+    ax2.set_ylabel('Número de años')
+    ax2.legend()
+    ax2.grid(True, alpha=0.3, axis='y')
+
+    plt.tight_layout()
+    plt.show()
+
+    # Estadísticas
+    print("\n" + "="*70)
+    print("ANÁLISIS DE DISTRIBUCIÓN")
+    print("="*70)
+    print(f"\n📊 Distribución del gasto total:")
+    print(f"   Media: {df_gastos_wide['Total'].mean():,.0f} miles de €")
+    print(f"   Mediana: {df_gastos_wide['Total'].median():,.0f} miles de €")
+    print(f"   Desviación estándar: {df_gastos_wide['Total'].std():,.0f} miles de €")
+    print(f"   Rango: {df_gastos_wide['Total'].min():,.0f} - {df_gastos_wide['Total'].max():,.0f} miles de €")
+    
+    print(f"\n📈 Distribución del crecimiento interanual:")
+    print(f"   Media: {crecimiento.mean():.2f}%")
+    print(f"   Mediana: {crecimiento.median():.2f}%")
+    print(f"   Desviación estándar: {crecimiento.std():.2f}%")
+    print(f"   Rango: {crecimiento.min():.2f}% - {crecimiento.max():.2f}%")
